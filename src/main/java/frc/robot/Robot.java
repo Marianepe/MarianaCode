@@ -35,11 +35,11 @@ public class Robot extends TimedRobot {
 
   private static RobotContainer robotContainer;
 
- private CANSparkMax motor1;
+ /*private CANSparkMax motor1;
  private CANSparkMax motor2;
  private CANSparkMax motor3;
  private CANSparkMax motor4;
- private Object m_robotDrive;
+ private Object m_robotDrive;*/
 
 
  private final XboxController m_controller = new XboxController(1);
@@ -61,10 +61,11 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    robotContainer = new RobotContainer();
+    /*robotContainer = new RobotContainer();
     robotContainer.configureButtonBindings();
     motor1 = new CANSparkMax(11 , MotorType.kBrushless);
-    motor2 = new CANSparkMax(51, MotorType.kBrushless);
+    motor2 = new CANSparkMax(51, MotorType.kBrushless);*/
+   
     //m_robotDrive.arcadeDrive(0.23,0.741); 
 
 }

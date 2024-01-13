@@ -34,14 +34,11 @@ public class driveTrain extends SubsystemBase {
   TecbotSpeedController m2;
   TecbotSpeedController m3;
   TecbotSpeedController m4; */
-  private CANSparkMax motorRot1;
-  private CANSparkMax motorAdv1;
-  private CANSparkMax motorRot2;
-  private CANSparkMax motorAdv2;
-  private CANSparkMax motorRot3;
-  private CANSparkMax motorAdv3;
-  private CANSparkMax motorRot4;
-  private CANSparkMax motorAdv4;
+  
+  private CANSparkMax motor1;
+ private CANSparkMax motor2;
+ private CANSparkMax motor3;
+ private CANSparkMax motor4;
 
  /*  boolean leftSideBalanced = false, rightSideBalanced = false;
   
@@ -59,15 +56,9 @@ public class driveTrain extends SubsystemBase {
 // m1 & m2 left 
 
   public driveTrain() {
-    motorRot3 = new CANSparkMax(13 , MotorType.kBrushless);
-    motorAdv3 = new CANSparkMax(15, MotorType.kBrushless);
-    motorRot2 = new CANSparkMax(41, MotorType.kBrushless);
-    motorAdv2 = new CANSparkMax(20, MotorType.kBrushless);
-    motorRot4 = new CANSparkMax(45, MotorType.kBrushless);
-    motorAdv4 = new CANSparkMax(40, MotorType.kBrushless);
-    motorRot1 = new CANSparkMax(35, MotorType.kBrushless);
-    motorAdv1 = new CANSparkMax(50,MotorType.kBrushless);
-  //transmition = RobotConfigurator.buildDoubleSolenoid(RobotMap.SolenoidPortTransmition);
+    motor1 = new CANSparkMax(11 , MotorType.kBrushless);
+    motor2 = new CANSparkMax(51, MotorType.kBrushless);
+   
  
   }
   @Override
@@ -78,14 +69,14 @@ public class driveTrain extends SubsystemBase {
     Robot.getRobotContainer().getOI().getPilot().setOffset(RobotMap.OFFSET);
     //double rotatingspeed = l_x + r_x;´
     //double advSpeed = l_y + r_y;´
-    motorRot1.set(l_x);
-    motorAdv1.set(l_y);
-    motorRot2.set(r_x);
-    motorAdv2.set(r_y);
-    motorRot3.set(0);
-    motorAdv3.set(0);
-    motorRot4.set(0);
-    motorAdv4.set(0);
+    motor1.set(l_x);
+    motor1.set(l_y);
+    motor2.set(r_x);
+    motor2.set(r_y);
+    motor1.set(0);
+    motor1.set(0);
+    motor2.set(0);
+    motor2.set(0);
 
    /*  m1.set(leftSpeed);
     m2.set(leftSpeed);

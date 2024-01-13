@@ -63,15 +63,10 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     robotContainer.configureButtonBindings();
-    motor3 = new CANSparkMax(13 , MotorType.kBrushless);
-    motor3 = new CANSparkMax(15, MotorType.kBrushless);
-    motor2 = new CANSparkMax(41, MotorType.kBrushless);
-    motor2 = new CANSparkMax(20, MotorType.kBrushless);
-    motor4 = new CANSparkMax(45, MotorType.kBrushless);
-    motor4 = new CANSparkMax(40, MotorType.kBrushless);
-    motor1 = new CANSparkMax(35, MotorType.kBrushless);
-    motor1 = new CANSparkMax(50,MotorType.kBrushless);
+    motor1 = new CANSparkMax(11 , MotorType.kBrushless);
+    motor2 = new CANSparkMax(51, MotorType.kBrushless);
     //m_robotDrive.arcadeDrive(0.23,0.741); 
+
 }
 
 public static RobotContainer getRobotContainer() {

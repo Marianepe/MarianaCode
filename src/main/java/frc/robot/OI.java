@@ -18,7 +18,7 @@ public class OI {
 
     public OI(){
       Driver1 = new TecbotController(RobotMap.pilotPort, TecbotConstants.CONTROLLER_TYPE_PILOT);
-      Driver2 = new TecbotController(RobotMap.copilotPort, TecbotConstants.CONTROLLER_TYPE_COPILOT);
+      //Driver2 = new TecbotController(RobotMap.copilotPort, TecbotConstants.CONTROLLER_TYPE_COPILOT);
 
    }
 

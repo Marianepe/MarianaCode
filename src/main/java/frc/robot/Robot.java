@@ -61,8 +61,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    /*robotContainer = new RobotContainer();
-    robotContainer.configureButtonBindings();
+    robotContainer = new RobotContainer();
+    /*robotContainer.configureButtonBindings();
     motor1 = new CANSparkMax(11 , MotorType.kBrushless);
     motor2 = new CANSparkMax(51, MotorType.kBrushless);*/
    
@@ -84,14 +84,11 @@ public void teleopInit() {
   driveRetake();
 }
 
-public static void driveRetake()
+public void driveRetake()
 {
   driveRobot t2 = new driveRobot();
- 
-
-  t2.schedule();
+ t2.schedule();
 }
-
 
 
  

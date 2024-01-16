@@ -69,15 +69,9 @@ public class driveTrain extends SubsystemBase {
     Robot.getRobotContainer().getOI().getPilot().setOffset(RobotMap.OFFSET);
     //double rotatingspeed = l_x + r_x;´
     //double advSpeed = l_y + r_y;´
-    motor1.set(l_x);
-    motor1.set(l_y);
+    motor1.set(-l_x);
     motor2.set(r_x);
-    motor2.set(r_y);
-    motor1.set(0);
-    motor1.set(0);
-    motor2.set(0);
-    motor2.set(0);
-
+    
    /*  m1.set(leftSpeed);
     m2.set(leftSpeed);
     m3.set(rightSpeed);

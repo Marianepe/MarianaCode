@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    robotContainer = new RobotContainer();
+    //robotContainer = new RobotContainer();
     /*robotContainer.configureButtonBindings();
     //m_robotDrive.arcadeDrive(0.23,0.741); */
     m_rightMotor.setInverted(true);
@@ -87,12 +87,12 @@ public void teleopInit() {
   // teleop starts running. If you want the autonomous to
   // continue until interrupted by another command, remove
   // this line or comment it out.
-  driveRetake();
+  //driveRetake();
 }
 
 public void driveRetake(){
-  driveRobot t2 = new driveRobot();
- t2.schedule();
+  //driveRobot t2 = new driveRobot();
+ //t2.schedule();
 }
 
 

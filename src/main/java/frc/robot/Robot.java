@@ -6,13 +6,23 @@
 package frc.robot;
 
 
+import java.util.List;
+
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+//import edu.wpi.first.math.geometry.Pose2d;
+//import edu.wpi.first.math.geometry.Rotation2d;
+//import edu.wpi.first.math.trajectory.Trajectory;
+//import edu.wpi.first.math.trajectory.TrajectoryConfig;
+//import edu.wpi.first.math.trajectory.TrajectoryGenerator;
+import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.driveRobot;
@@ -30,28 +40,27 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
  * project.
  */
 public class Robot extends TimedRobot {
+
   private Command m_autonomousCommand;
-
-
   private static RobotContainer robotContainer;
+  private final XboxController m_controller = new XboxController(1);
 
- /*private CANSparkMax motor1;
- private CANSparkMax motor2;
- private CANSparkMax motor3;
- private CANSparkMax motor4;
- private Object m_robotDrive;*/
-
-
- private final XboxController m_controller = new XboxController(1);
  
- 
- 
-
+  private final CANSparkMax m_leftMotor = new CANSparkMax(11,MotorType.kBrushless);
+  private final CANSparkMax m_rightMotor = new CANSparkMax(51, MotorType.kBrushless);
+  private final DifferentialDrive m_robotDrive =
+      new DifferentialDrive (m_leftMotor, m_rightMotor);
+  
 
  Command m_rightDrive;
 
 
+    public Robot() {
+      SendableRegistry.addChild(m_robotDrive, m_leftMotor);
+      SendableRegistry.addChild(m_robotDrive, m_rightMotor);
+    }
 
+  
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -63,11 +72,8 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     /*robotContainer.configureButtonBindings();
-    motor1 = new CANSparkMax(11 , MotorType.kBrushless);
-    motor2 = new CANSparkMax(51, MotorType.kBrushless);*/
-   
-    //m_robotDrive.arcadeDrive(0.23,0.741); 
-
+    //m_robotDrive.arcadeDrive(0.23,0.741); */
+    m_rightMotor.setInverted(true);
 }
 
 public static RobotContainer getRobotContainer() {
@@ -84,8 +90,7 @@ public void teleopInit() {
   driveRetake();
 }
 
-public void driveRetake()
-{
+public void driveRetake(){
   driveRobot t2 = new driveRobot();
  t2.schedule();
 }
@@ -109,6 +114,7 @@ public void driveRetake()
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+   // m_drive.preiodic();
   }
 
 
@@ -144,8 +150,12 @@ public void driveRetake()
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
+    m_robotDrive.arcadeDrive(-m_controller.getLeftY(), -m_controller.getRightX());
     
- }
+  }
+  //cambiar l_x por m_rightMotor y l_y por m_leftMotor
+    
+ 
 
 
   @Override

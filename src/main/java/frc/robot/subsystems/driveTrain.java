@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,6 +25,9 @@ import frc.robot.resources.Navx;
 import frc.robot.resources.RobotConfigurator;
 import frc.robot.resources.TecbotConstants;
 import frc.robot.resources.TecbotSpeedController;
+
+import org.ejml.data.ZMatrix;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -56,8 +60,8 @@ public class driveTrain extends SubsystemBase {
 // m1 & m2 left 
 
   public driveTrain() {
-    motor1 = new CANSparkMax(11 , MotorType.kBrushless);
-    motor2 = new CANSparkMax(51, MotorType.kBrushless);
+    //motor1 = new CANSparkMax(11 , MotorType.kBrushless);
+   // motor2 = new CANSparkMax(51, MotorType.kBrushless);
    
  
   }
@@ -69,14 +73,24 @@ public class driveTrain extends SubsystemBase {
     Robot.getRobotContainer().getOI().getPilot().setOffset(RobotMap.OFFSET);
     //double rotatingspeed = l_x + r_x;´
     //double advSpeed = l_y + r_y;´
-    motor1.set(-l_x);
-    motor2.set(r_x);
+    SmartDashboard.putNumber("Variable",l_x);
+    motor1.set(-l_y);
+    motor2.set(l_y);
+
+    
+  //public void DifferentialDrive() {
+   // motor1.set(-l_y);
+  //  motor2.set(l_y);
+//Comand return drive(l_x, l_y, r_x, r_y);
+  }
+
     
    /*  m1.set(leftSpeed);
     m2.set(leftSpeed);
     m3.set(rightSpeed);
     m4.set(rightSpeed);*/
   } 
+
 
   
 
@@ -132,6 +146,6 @@ public class driveTrain extends SubsystemBase {
  
 
  
-}
+
 
 

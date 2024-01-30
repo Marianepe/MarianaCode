@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -43,6 +44,14 @@ public class driveTrain extends SubsystemBase {
  private CANSparkMax motor2;
  private CANSparkMax motor3;
  private CANSparkMax motor4;
+
+ private final XboxController m_controller = new XboxController(0);
+
+ private final CANSparkMax m_leftMotor = new CANSparkMax(11,MotorType.kBrushless);
+  private final CANSparkMax m_rightMotor = new CANSparkMax(51, MotorType.kBrushless);
+  private final DifferentialDrive m_robotDrive =
+      new DifferentialDrive (m_leftMotor, m_rightMotor);
+  
 
  /*  boolean leftSideBalanced = false, rightSideBalanced = false;
   
@@ -84,7 +93,9 @@ public class driveTrain extends SubsystemBase {
 //Comand return drive(l_x, l_y, r_x, r_y);
   }
 
-    
+   public void arcadeDrive() {
+    m_robotDrive.arcadeDrive(-m_controller.getLeftY(), -m_controller.getRightX());
+   } 
    /*  m1.set(leftSpeed);
     m2.set(leftSpeed);
     m3.set(rightSpeed);

@@ -43,13 +43,13 @@ public class Robot extends TimedRobot {
 
   private Command m_autonomousCommand;
   private static RobotContainer robotContainer;
-  private final XboxController m_controller = new XboxController(1);
+ // private final XboxController m_controller = new XboxController(0);
 
  
-  private final CANSparkMax m_leftMotor = new CANSparkMax(11,MotorType.kBrushless);
+  /*private final CANSparkMax m_leftMotor = new CANSparkMax(11,MotorType.kBrushless);
   private final CANSparkMax m_rightMotor = new CANSparkMax(51, MotorType.kBrushless);
   private final DifferentialDrive m_robotDrive =
-      new DifferentialDrive (m_leftMotor, m_rightMotor);
+      new DifferentialDrive (m_leftMotor, m_rightMotor);*/
   
 
  Command m_rightDrive;
@@ -150,7 +150,7 @@ public void driveRetake(){
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_robotDrive.arcadeDrive(-m_controller.getLeftY(), -m_controller.getRightX());
+   // m_robotDrive.arcadeDrive(-m_controller.getLeftY(), -m_controller.getRightX());
     
   }
   //cambiar l_x por m_rightMotor y l_y por m_leftMotor
